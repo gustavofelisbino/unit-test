@@ -233,8 +233,10 @@ class EscolaDeEsportes {
     if (modalidades.length === 0) {
       throw new Error("Nenhuma modalidade cadastrada");
     }
-    const campea = modalidades.reduce((maior, atual) =>
-      atual.inscritos.size > maior.inscritos.size ? atual : maior
+    const campea = modalidades.reduce(
+      (maior, atual) =>
+        atual.inscritos.size > maior.inscritos.size ? atual : maior,
+      modalidades[0]
     );
     return this.#resumoModalidade(campea);
   }
