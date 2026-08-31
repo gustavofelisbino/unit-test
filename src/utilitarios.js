@@ -1,3 +1,5 @@
+const { randomInt } = require("node:crypto");
+
 class Utilitarios {
   inverterString(str) {
     return str.split("").reverse().join("");
@@ -53,7 +55,11 @@ class Utilitarios {
   }
 
   ordenarArray(arr) {
-    return [...arr].sort();
+    return [...arr].sort((a, b) => {
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+    });
   }
 
   inverterArray(arr) {
@@ -61,11 +67,11 @@ class Utilitarios {
   }
 
   gerarNumeroAleatorio(max = 100) {
-    return Math.floor(Math.random() * max);
+    return randomInt(max);
   }
 
   ehNumero(valor) {
-    return typeof valor === "number" && !isNaN(valor);
+    return typeof valor === "number" && !Number.isNaN(valor);
   }
 
   removerEspacos(str) {

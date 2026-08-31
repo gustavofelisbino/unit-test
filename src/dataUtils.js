@@ -28,13 +28,13 @@ const MS_POR_DIA = 1000 * 60 * 60 * 24;
 class DataUtils {
   #validarData(data) {
     if (!(data instanceof Date) || Number.isNaN(data.getTime())) {
-      throw new Error("Data inválida");
+      throw new TypeError("Data inválida");
     }
   }
 
   #validarInteiro(valor, nome) {
     if (!Number.isInteger(valor)) {
-      throw new Error(`${nome} deve ser um número inteiro`);
+      throw new TypeError(`${nome} deve ser um número inteiro`);
     }
   }
 
@@ -87,7 +87,7 @@ class DataUtils {
   adicionarDias(data, dias) {
     this.#validarData(data);
     this.#validarInteiro(dias, "A quantidade de dias");
-    const nova = new Date(data.getTime());
+    const nova = new Date(data);
     nova.setDate(nova.getDate() + dias);
     return nova;
   }
