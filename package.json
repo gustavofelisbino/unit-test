@@ -1,9 +1,9 @@
 {
-  "name": "unit-tests-jest",
+  "name": "unit-test",
   "version": "1.0.0",
-  "description": "Example to unit tests using Jest",
+  "description": "Unit test suite with Jest, GitHub Actions and SonarCloud",
   "main": "index.js",
-  "author": "ugioni",
+  "author": "Gustavo Dias",
   "license": "ISC",
   "dependencies": {
     "jest": "^30.4.2",
